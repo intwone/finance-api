@@ -1,5 +1,5 @@
-import TransactionRepository from '@src/application/repositories/Transaction';
-import TransactionEntity from '@src/domain/entities/Transaction';
+import { default as TransactionRepository } from '@src/application/repositories/Transaction';
+import { default as TransactionEntity } from '@src/domain/entities/Transaction';
 import { default as TransactionTypeEntity } from '@src/domain/entities/TransactionType';
 import { default as TransactionValueEntity } from '@src/domain/entities/TransactionValue';
 

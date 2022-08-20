@@ -32,8 +32,8 @@ const createTransactions = ({
   userId,
   quantityRegisters = 0,
 }: ICreateTransactionParams) => {
-  let transactions = [];
-  for (let i = 0; i < quantityRegisters; i++) {
+  const transactions = [];
+  for (let i = 0; i < quantityRegisters; i += 1) {
     const transaction = {
       id: randomUUID(),
       title: faker.finance.accountName(),

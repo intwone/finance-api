@@ -47,8 +47,8 @@ describe('Get consolided values', () => {
       ];
 
       // Given
-      transactions.forEach(async t => {
-        t.forEach(async t => {
+      transactions.forEach(async transaction => {
+        transaction.forEach(async t => {
           const transaction = await createTransactionUsecase.run(
             t.id,
             t.title,
