@@ -28,6 +28,6 @@ export default class Login {
       { user: userOutput },
       config.jwt.expiresInDays,
     );
-    return token;
+    return { user: userOutput, token };
   }
 }

@@ -17,6 +17,17 @@ const inputsAndTypes = gql`
     password: String!
   }
 
+  type UserLoginOutput {
+    id: String
+    name: String
+    email: String
+  }
+
+  type LoginOutput {
+    user: UserLoginOutput
+    token: String
+  }
+
   input UserLoginInput {
     email: String!
     password: String!

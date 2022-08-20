@@ -11,8 +11,8 @@ const loginUsecase = new LoginUsecase(userRepository, cryptography, jwt);
 
 const querys = {
   login: async (_: any, args: { data: any }) => {
-    const token = await loginUsecase.run(args.data.email, args.data.password);
-    return token;
+    const output = await loginUsecase.run(args.data.email, args.data.password);
+    return output;
   },
 };
 
