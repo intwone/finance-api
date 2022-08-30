@@ -27,15 +27,15 @@ export default class File {
     );
     const authMiddleware = new AuthMiddleware(jwt);
     if (!request.headers?.authorization) return new Unauthorized();
-    const token = await authMiddleware.validate({ headers: request.headers });
-    if (token instanceof Error || !token) return new Unauthorized();
+    const jwtInfo = await authMiddleware.validate({ headers: request.headers });
+    if (jwtInfo instanceof Error || !jwtInfo) return new Unauthorized();
     if (!request.file) return new BadRequest('file is required');
     const { filename, originalname } = request.file;
     const saveFileResult = await saveFileUsecase.run(filename);
     if (saveFileResult instanceof Error) return new ServerError();
     const insertFileResult = await insertFileDataInDatabaseUsecase.run(
       filename,
-      token.id,
+      jwtInfo.user.id,
     );
     if (insertFileResult instanceof Error) return new ServerError();
     return new Created({ message: `${originalname} uploaded successfully` });

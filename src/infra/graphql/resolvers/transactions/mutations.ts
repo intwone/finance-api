@@ -17,7 +17,7 @@ const mutations = {
     context: any,
   ) => {
     if (context.token instanceof Unauthorized) return new Unauthorized();
-    const userId = context.token.id;
+    const userId = context.jwtInfo.user.id;
     const createTransactionUsecase = new CreateTransactionUsecase(
       transactionRepository,
     );

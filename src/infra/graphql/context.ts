@@ -6,7 +6,7 @@ const context = async ({ req }: any) => {
   const jwt = new JwtToken(config.jwt.secret);
   const authMiddleware = new AuthMiddleware(jwt);
   return {
-    token: await authMiddleware.validate({ headers: req.headers }),
+    jwtInfo: await authMiddleware.validate({ headers: req.headers }),
   };
 };
 

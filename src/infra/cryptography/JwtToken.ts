@@ -14,8 +14,8 @@ export default class JwtToken implements TokenAdapter {
 
   async decrypt(ciphertext: string): Promise<IPayload | null> {
     try {
-      const token = jwt.verify(ciphertext, this.secret) as IPayload;
-      return token;
+      const jwtInfo = jwt.verify(ciphertext, this.secret) as IPayload;
+      return jwtInfo;
     } catch {
       return null;
     }
