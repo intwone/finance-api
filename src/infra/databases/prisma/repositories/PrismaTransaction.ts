@@ -135,12 +135,18 @@ export default class PrismaTransaction implements TransactionRepository {
 
     const totalTransactionsRegistered =
       await prismaClient.transactions.aggregate({
+        where: {
+          user_id: userId,
+        },
         _count: {
           value: true,
         },
       });
 
     const lastTransactionRegistered = await prismaClient.transactions.findMany({
+      where: {
+        user_id: userId,
+      },
       orderBy: {
         created_at: 'desc',
       },
