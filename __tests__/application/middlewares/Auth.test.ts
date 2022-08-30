@@ -22,7 +22,7 @@ describe('Auth middleware', () => {
 
       // Then
       expect(result).not.toBeNull();
-      expect(result).toHaveProperty('id');
+      expect(result).toHaveProperty('user');
       expect(result).toHaveProperty('iat');
       expect(result).toHaveProperty('exp');
     });

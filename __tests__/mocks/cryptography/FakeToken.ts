@@ -14,11 +14,18 @@ export default class FakeToken implements TokenAdapter {
     const exp = new Date().setDate(
       new Date().getDate() + Number(config.jwt.expiresInDays),
     );
-    const token = {
+
+    const user = {
       id,
+      name: 'any_name',
+      email: 'any_email',
+    };
+
+    const jwtInfo = {
+      user,
       iat,
       exp,
     };
-    return token || null;
+    return jwtInfo || null;
   }
 }
