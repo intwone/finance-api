@@ -14,9 +14,8 @@
 <br>
 
 <div align="center">
-  🌐 Demo on Heroku
-  <br>
-  <a>https://intw-finance-api.herokuapp.com<a>
+  <p>Demo on Heroku 👇</p>
+  <a href="https://intw-finance-api.herokuapp.com"><img width="200" src="https://i.ibb.co/cQ7MWHM/heroku.png" alt="heroku" border="0"></a>
 </div>
 
 <br>
@@ -49,7 +48,7 @@ Create the .env file with the same variables as the .env.example file.
 Clone project:
 
 ```bash
-$ git clone https://github.com/cassiosilva93/finance-api.git
+$ git clone https://github.com/intwone/finance-api.git
 ```
 
 Install dependencies:
