@@ -15,7 +15,7 @@
 
 <div align="center">
   <p>Demo on Heroku 👇</p>
-  <a href="https://intw-finance-api.herokuapp.com"><img width="200" src="https://i.ibb.co/cQ7MWHM/heroku.png" alt="heroku" border="0"></a>
+  <a href="https://intw-finance-api.herokuapp.com/health"><img width="200" src="https://i.ibb.co/cQ7MWHM/heroku.png" alt="heroku" border="0"></a>
 </div>
 
 <br>
