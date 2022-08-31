@@ -28,7 +28,7 @@ async function startApolloServer(typeDefs: string, resolvers: any) {
     context,
   });
   await server.start();
-  server.applyMiddleware({ app, path: `/${path}`, cors: corsOptions });
+  server.applyMiddleware({ app, path: `/${path}`, cors: false });
   app.listen(port, () => {
     console.log(`🚀 Server running in http://localhost:${port}`);
   });
