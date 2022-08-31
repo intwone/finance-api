@@ -10,7 +10,7 @@ const transactionRepository = new PrismaTransactionRepository();
 
 const querys = {
   getTransactions: async (_parent: any, _args: any, context: any) => {
-    if (context.token instanceof Unauthorized) return new Unauthorized();
+    if (context.jwtInfo instanceof Unauthorized) return new Unauthorized();
     const userId = context.jwtInfo.user.id;
     const getAllTransactionsUsecase = new GetAllTransactionsUsecase(
       transactionRepository,
@@ -20,7 +20,7 @@ const querys = {
   },
 
   getTransaction: async (_: any, _args: any, context: any) => {
-    if (context.token instanceof Unauthorized) return new Unauthorized();
+    if (context.jwtInfo instanceof Unauthorized) return new Unauthorized();
     const userId = context.jwtInfo.user.id;
     const getOneTransactionUsecase = new GetOneTransactionUsecase(
       transactionRepository,
@@ -30,7 +30,7 @@ const querys = {
   },
 
   getConsolidedValues: async (_: any, _args: any, context: any) => {
-    if (context.token instanceof Unauthorized) return new Unauthorized();
+    if (context.jwtInfo instanceof Unauthorized) return new Unauthorized();
     const userId = context.jwtInfo.user.id;
     const getConsolidedValuesUsecase = new GetConsolidatedValues(
       transactionRepository,

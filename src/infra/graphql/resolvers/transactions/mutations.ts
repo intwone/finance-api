@@ -16,7 +16,7 @@ const mutations = {
     args: { data: TransactionEntity },
     context: any,
   ) => {
-    if (context.token instanceof Unauthorized) return new Unauthorized();
+    if (context.jwtInfo instanceof Unauthorized) return new Unauthorized();
     const userId = context.jwtInfo.user.id;
     const createTransactionUsecase = new CreateTransactionUsecase(
       transactionRepository,
@@ -39,7 +39,7 @@ const mutations = {
     args: { id: string; data: any },
     context: any,
   ) => {
-    if (context.token instanceof Unauthorized) return new Unauthorized();
+    if (context.jwtInfo instanceof Unauthorized) return new Unauthorized();
     const updateTransactionUsecase = new UpdateTransactionUsecase(
       transactionRepository,
     );
@@ -48,7 +48,7 @@ const mutations = {
   },
 
   deleteTransaction: async (_: any, args: { id: string }, context: any) => {
-    if (context.token instanceof Unauthorized) return new Unauthorized();
+    if (context.jwtInfo instanceof Unauthorized) return new Unauthorized();
     const deleteTransactionUsecase = new DeleteTransactionUsecase(
       transactionRepository,
     );
