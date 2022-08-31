@@ -1,12 +1,17 @@
 import config from '@src/config';
-import { ApolloServer } from 'apollo-server-express';
+import { ApolloServer, CorsOptions } from 'apollo-server-express';
 import cors from 'cors';
 import express from 'express';
 import context from '../graphql/context';
 import routes from '../rest/routes';
 
+const corsOptions: CorsOptions = {
+  origin: '*',
+  credentials: true,
+};
+
 const app = express();
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(routes);
 
@@ -23,7 +28,7 @@ async function startApolloServer(typeDefs: string, resolvers: any) {
     context,
   });
   await server.start();
-  server.applyMiddleware({ app, path: `/${path}` });
+  server.applyMiddleware({ app, path: `/${path}`, cors: corsOptions });
   app.listen(port, () => {
     console.log(`🚀 Server running in http://localhost:${port}`);
   });
