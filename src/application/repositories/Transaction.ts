@@ -1,4 +1,4 @@
-import TransactionEntity from '../../domain/entities/Transaction';
+import TransactionEntity from '@src/domain/entities/Transaction';
 
 export default interface Transaction {
   create(

@@ -1,5 +1,5 @@
+import HttpFrameworkAdapter from '@src/adapter/ports/HttpFramework';
 import { Request, Response } from 'express';
-import HttpFrameworkAdapter from '../../adapter/ports/HttpFramework';
 
 export default class Express implements HttpFrameworkAdapter {
   create(fn: Function) {
