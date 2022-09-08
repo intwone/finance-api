@@ -28,6 +28,8 @@
 - JWT
 - Bcrypt
 - Jest
+- Amazon S3
+- Amazon RDS
 
 ## 🎨 Methodologies and Designs
 
