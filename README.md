@@ -28,6 +28,7 @@
 - JWT
 - Bcrypt
 - Jest
+- Amazon S3
 
 ## 🎨 Methodologies and Designs
 
