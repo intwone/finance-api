@@ -11,14 +11,14 @@ import { CreateTransactionUsecase } from '@src/application/usecases/transactions
 import config from '@src/config';
 import JwtToken from '@src/infra/cryptography/JwtToken';
 import PrismaTransactionRepository from '@src/infra/databases/prisma/repositories/PrismaTransaction';
-import DiskStorage from '@src/infra/storage/Disk';
+import Helpers from '@src/infra/storage/Helpers';
 
 export default class File {
   static async handle(request: any) {
+    const provider = new Helpers().defineStorageProvider();
     const jwt = new JwtToken(config.jwt.secret);
-    const diskStorageProvider = new DiskStorage();
     const transactionRepository = new PrismaTransactionRepository();
-    const saveFileUsecase = new SaveFileUsecase(diskStorageProvider);
+    const saveFileUsecase = new SaveFileUsecase(provider);
     const createTransactionUsecase = new CreateTransactionUsecase(
       transactionRepository,
     );
