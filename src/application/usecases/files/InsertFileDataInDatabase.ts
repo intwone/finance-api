@@ -55,6 +55,7 @@ export default class InsertFileDataInDatabase {
         input: readableLine,
       });
       await this.insertLines(transactionsLine, userId);
+      await fs.promises.unlink(filePath);
       return true;
     } catch (error) {
       throw new Error('error inserting file information into database');
